@@ -1,9 +1,5 @@
 var express = require('express');
 var router = express.Router();
-// var elasticsearch = require('elasticsearch');
-// var client = new elasticsearch.Client({
-//     host: 'localhost:9200'
-// })
 
 var workouts = [
     {
@@ -19,13 +15,6 @@ var workouts = [
         date: "02/09/2019"
     }
 ]
-// router.use('/workouts', (req, res, next) =>  {
-//     console.log(req.method, req.url);
-
-//     res.setHeader('akses', 'httpd://localhost:4210')
-
-//     next();
-// }) 
 
 router.use((req, res, next) =>  {
     console.log(req.method, req.url);
@@ -38,13 +27,6 @@ router.get('/workouts', (req, res) => {
       workouts: workouts  
     })
 })
-
-// router.get((req, res, status) => {
-//     return res.status(200).send({
-//         message: 'GEt sukses',
-//         workouts: workouts
-//     })
-// });
 
 router.post('/workouts', (req, res) => {
     if (! req.body.id) {
